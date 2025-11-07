@@ -15,11 +15,11 @@ export default function MapOverlay({ origin, destination }: Props) {
 
   return (
     <View pointerEvents="box-none" style={mapOverlayStyles.container}>
-      {/* 🔹 Bottom panel with selection buttons */}
+      
       <View pointerEvents="auto" style={mapOverlayStyles.lowerviewstyle}>
         <Text style={mapOverlayStyles.header}>Where to?</Text>
 
-        {/* ✅ Origin selector — keeps both origin and destination in params */}
+        
         <TouchableOpacity
           style={mapOverlayStyles.originAndDestinationContainer}
           onPress={() =>
@@ -39,7 +39,7 @@ export default function MapOverlay({ origin, destination }: Props) {
           </Text>
         </TouchableOpacity>
 
-        {/* ✅ Destination selector — also preserves both params */}
+       
         <TouchableOpacity
           style={mapOverlayStyles.originAndDestinationContainer}
           onPress={() =>
@@ -59,7 +59,7 @@ export default function MapOverlay({ origin, destination }: Props) {
           </Text>
         </TouchableOpacity>
 
-        {/* 🔹 Buttons to show route lists */}
+       
         <View style={mapOverlayStyles.buttonRow}>
           <TouchableOpacity
             style={mapOverlayStyles.button}

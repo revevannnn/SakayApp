@@ -9,7 +9,7 @@ import { useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
 
 type MainScreenParams = {
-  MainScreen: {   // ✅ FIXED: must match the actual navigation name
+  MainScreen: {   
     origin?: Location;
     destination?: Location;
   };
@@ -22,7 +22,7 @@ type RouteLeg = {
 
 export default function MainScreen() {
   const mapRef = useRef<MapView>(null);
-  const route = useRoute<RouteProp<MainScreenParams, 'MainScreen'>>(); // ✅ Matches navigation name
+  const route = useRoute<RouteProp<MainScreenParams, 'MainScreen'>>(); 
   const origin = route.params?.origin;
   const destination = route.params?.destination;
 
@@ -118,7 +118,7 @@ export default function MainScreen() {
   return (
     <View style={mainscreen.container}>
       <MapView ref={mapRef} style={mainscreen.map} initialRegion={markers[0].coordinates}>
-        {/* Origin marker */}
+        
         {origin && (
           <Marker
             coordinate={origin.coordinates}
@@ -128,7 +128,7 @@ export default function MainScreen() {
           />
         )}
 
-        {/* Destination marker */}
+       
         {destination && (
           <Marker
             coordinate={destination.coordinates}
@@ -138,7 +138,7 @@ export default function MainScreen() {
           />
         )}
 
-        {/* Render polylines with jeepney icons */}
+       
         {routeData.map((leg, index) => (
           <React.Fragment key={`leg-${index}`}>
             <Polyline

@@ -29,7 +29,7 @@ export default function LocationSearchScreen() {
   const [query, setQuery] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<Location[]>(MOCK_LOCATIONS);
 
-  // 🔍 Filter mock locations based on user input
+ 
   const handleSearch = (text: string) => {
     setQuery(text);
     const filtered = MOCK_LOCATIONS.filter((loc) =>
@@ -38,20 +38,20 @@ export default function LocationSearchScreen() {
     setFilteredLocations(filtered);
   };
 
-  // 📍 When user selects a location
+ 
   const handleSelectLocation = (location: Location) => {
     if (type === 'origin') {
-      // Preserve destination
+      
       navigation.navigate('MainScreen', { origin: location, destination });
     } else {
-      // Preserve origin
+     
       navigation.navigate('MainScreen', { origin, destination: location });
     }
   };
 
   return (
     <SafeAreaView style={locationSearchStyles.container}>
-      {/* 🔙 Back button and header */}
+      
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={{ flexDirection: 'row', marginBottom: 20 }}
@@ -62,7 +62,7 @@ export default function LocationSearchScreen() {
         </Text>
       </TouchableOpacity>
 
-      {/* 🔎 Search box */}
+     
       <TextInput
         value={query}
         onChangeText={handleSearch}
@@ -70,7 +70,7 @@ export default function LocationSearchScreen() {
         style={locationSearchStyles.input}
       />
 
-      {/* 📋 Search results */}
+     
       <FlatList
         data={filteredLocations}
         keyExtractor={(item) => item.id}
